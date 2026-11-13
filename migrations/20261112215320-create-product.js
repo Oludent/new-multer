@@ -20,8 +20,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-       productImage: {
-        type: Sequelize.STRING,
+       productImages: {
+        type: Sequelize.JSON,
         allowNull: false
       },
       createdAt: {

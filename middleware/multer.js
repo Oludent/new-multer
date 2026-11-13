@@ -2,20 +2,24 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb)=>{
-        cb(null, './uploads')
+        cb(null, './gallery')
 
     },
-    filename: (req, file, cb)=>{
-        cb(null, file.originalname)
+    filename: (req, file, cb) =>{
+        const date = Date.now()
+        const randNumber = Math.floor(Math.random() * 1E8)
+        const ext = file.originalname.split('.').pop()
+        const filename = `IMG_${date}_${randNumber}.${ext}`
+        cb(null, filename)
     }
 })
 
 const fileFilter = (req, file, cb)=>{
-
     if(file.mimetype.startsWith('image/')){
         cb(null, true)
-    }else{
-        cb(new Error('Only images are allowed!'))
+    }
+    else{
+        cb(new Error(`Image Only`))
     }
 }
 

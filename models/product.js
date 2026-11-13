@@ -32,9 +32,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-       productImage: {
-        type: DataTypes.STRING,
-        allowNull: false
+       productImages: {
+        type: DataTypes.JSON,
+        allowNull: false,
+        defaultValue: []
       },
       createdAt: {
         allowNull: false,
